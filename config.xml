@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "sirac.net"
+        version   = "1.0.0">
+		
+	
+		
+    <name>Juego Del Gato-UAN-ACBI</name>
+
+    <description>
+        Aplicacion de demostración-UAN-ACBI
+    </description>
+
+    <author href="sirac.net" email="sirac@hotmail.com">
+        Heriberto Arturo Figueroa Medina
+    </author>
+    
+
+    <preference name="phonegap-version" value="3.7.0" />
+    <preference name="orientation"      value="portrait" />
+	<preference name="exit-on-suspend" value="false"/>
+    <preference name="target-device"    value="universal" />
+    <preference name="fullscreen"       value="false" />
+		
+	
+
+    <icon src="icon.png" />
+</widget>

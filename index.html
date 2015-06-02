@@ -1,0 +1,478 @@
+﻿<!DOCTYPE html>
+<html>
+ <script src="jquery-1.9.1.min.js"></script>
+
+<style>
+
+
+#gato tr td
+{
+padding: 15px;
+border: 1px solid #000000;
+font-family: trebuchet, verdana, arial;
+color: #000000;
+background: #FFFFFF;
+font-size: 18px;
+}
+
+#gato tr td:hover{
+color: #FFFFFF;
+background: #000000;
+cursor: pointer;
+}
+
+#aviso{
+font-family: trebuchet, verdana, arial;
+font-weight: bold;
+}
+
+
+
+</style>
+<script>
+
+
+var tiros=0;
+var jugador = 1;
+var ganador = 0;
+var ganados1=0;
+var ganados2=0;
+var xgato = new Array(3);
+xgato[0] = new Array(3);
+xgato[1] = new Array(3);
+xgato[2] = new Array(3);
+
+xgato[0][0] = 1;
+xgato[0][1] = 2;
+xgato[0][2] = 3;
+xgato[1][0] = 4;
+xgato[1][1] = 5;
+xgato[1][2] = 6;
+xgato[2][0] = 7;
+xgato[2][1] = 8;
+xgato[2][2] = 9;
+
+
+$(function(){
+
+$("#gato tr td").click(function(){
+if (ganador>0 || tiros>=9) {
+    
+	
+	alert("El juego esta terminado, para volver a jugar pulse el botón de iniciar nuevo juego ");
+  return;
+}
+
+if ($(this).text() == "X" || $(this).text() == "O") { //error casilla utilizada   
+    
+	
+	alert("Error, Casilla utilizada");
+	
+	//return;
+}  // fin error
+
+if ($(this).text() == "1") { //casilla 1
+    if (jugador==1) {
+	   $(this).html("X");
+	   xgato[0][0]=10;
+	   if (xgato[0][0]==10 && xgato[0][1]==10 && xgato[0][2]==10){
+	      alert("Ganó jugador 1"); ganador=1; 
+	   }
+	   if (xgato[0][0]==10 && xgato[1][1]==10 && xgato[2][2]==10){
+	      alert("Ganó jugador 1"); ganador=1; 
+	   }
+	   if (xgato[0][0]==10 && xgato[1][0]==10 && xgato[2][0]==10){
+	      alert("Ganó jugador 1"); ganador=1; 
+	   }
+	   
+	   
+	}
+	else
+	{
+	  $(this).html("O");
+	   xgato[0][0]=0;
+	   if (xgato[0][0]==0 && xgato[0][1]==0 && xgato[0][2]==0){
+	      alert("Ganó jugador 2"); ganador=2; 
+	   }
+	   if (xgato[0][0]==0 && xgato[1][1]==0 && xgato[2][2]==0){
+	      alert("Ganó jugador 2"); ganador=2; 
+	   }
+	   if (xgato[0][0]==0 && xgato[1][0]==0 && xgato[2][0]==0){
+	      alert("Ganó jugador 2"); ganador=2; 
+	   }
+	  
+	}
+	jugador = jugador * -1
+	tiros ++;
+} // fin casilla
+
+if ($(this).text() == "2") { //casilla 2
+    if (jugador==1) {
+	   $(this).html("X");
+	   xgato[0][1]=10;
+	   if (xgato[0][0]==10 && xgato[0][1]==10 && xgato[0][2]==10){
+	      alert("Ganó jugador 1"); ganador=1; 
+	   }
+	   if (xgato[0][1]==10 && xgato[1][1]==10 && xgato[2][1]==10){
+	      alert("Ganó jugador 1"); ganador=1; 
+	   }
+	   	   
+	}
+	else
+	{
+	  $(this).html("O");
+	   xgato[0][1]=0;
+	   if (xgato[0][0]==0 && xgato[0][1]==0 && xgato[0][2]==0){
+	      alert("Ganó jugador 2"); ganador=2; 
+	   }
+	   if (xgato[0][1]==0 && xgato[1][1]==0 && xgato[2][2]==0){
+	      alert("Ganó jugador 2"); ganador=2; 
+	   }
+	  
+	}
+	jugador = jugador * -1
+	tiros ++;
+} // fin casilla
+
+if ($(this).text() == "3") { //casilla 3
+    if (jugador==1) {
+	
+	
+	   $(this).html("X");
+	   xgato[0][2]=10;
+	   if (xgato[0][0]==10 && xgato[0][1]==10 && xgato[0][2]==10){
+	      alert("Ganó jugador 1"); ganador=1; 
+	   }
+	   if (xgato[2][0]==10 && xgato[1][1]==10 && xgato[0][2]==10){
+	      alert("Ganó jugador 1"); ganador=1; 
+	   }
+	   if (xgato[0][2]==10 && xgato[1][2]==10 && xgato[2][2]==10){
+	      alert("Ganó jugador 1"); ganador=1; 
+	   }
+	  
+	   
+	}
+	else
+	{
+    	
+	$(this).html("O");
+	   xgato[0][2]=0;
+	   if (xgato[0][0]==0 && xgato[0][1]==0 && xgato[0][2]==0){
+	      alert("Ganó jugador 2"); ganador=2; 
+	   }
+	   if (xgato[2][0]==0 && xgato[1][1]==0 && xgato[0][2]==0){
+	      alert("Ganó jugador 2"); ganador=2; 
+	   }
+	   if (xgato[0][2]==0 && xgato[1][2]==0 && xgato[2][2]==0){
+	      alert("Ganó jugador 2"); ganador=2; 
+	   }
+	  
+	}
+	jugador = jugador * -1
+	tiros ++;
+} // fin casilla
+
+if ($(this).text() == "4") { //casilla 4
+    if (jugador==1) {
+	   $(this).html("X");
+	   xgato[1][0]=10;
+	   if (xgato[0][0]==10 && xgato[1][0]==10 && xgato[2][0]==10){
+	      alert("Ganó jugador 1"); ganador=1; 
+	   }
+	   if (xgato[1][0]==10 && xgato[1][1]==10 && xgato[1][2]==10){
+	      alert("Ganó jugador 1"); ganador=1; 
+	   }
+	   
+	}
+	else
+	{
+	  $(this).html("O");
+	   xgato[1][0]=0;
+	   if (xgato[0][0]==0 && xgato[1][0]==0 && xgato[2][0]==0){
+	      alert("Ganó jugador 2"); ganador=2; 
+	   }
+	   if (xgato[1][0]==0 && xgato[1][1]==0 && xgato[1][2]==0){
+	      alert("Ganó jugador 2"); ganador=2; 
+	   }
+	  
+	}
+	jugador = jugador * -1
+	tiros ++;
+} // fin casilla
+
+if ($(this).text() == "5") { //casilla 5
+    if (jugador==1) {
+	   $(this).html("X");
+	   xgato[1][1]=10;
+	   if (xgato[1][0]==10 && xgato[1][1]==10 && xgato[1][2]==10){
+	      alert("Ganó jugador 1"); ganador=1; 
+	   }
+	   if (xgato[0][0]==10 && xgato[1][1]==10 && xgato[2][2]==10){
+	      alert("Ganó jugador 1"); ganador=1; 
+	   }
+	   if (xgato[2][0]==10 && xgato[1][1]==10 && xgato[0][2]==10){
+	      alert("Ganó jugador 1"); ganador=1; 
+	   }
+	   if (xgato[0][1]==10 && xgato[1][1]==10 && xgato[2][1]==10){
+	      alert("Ganó jugador 1"); ganador=1; 
+	   }
+	   
+	   
+	}
+	else
+	{
+	  $(this).html("O");
+	   xgato[1][1]=0;
+	   if (xgato[1][0]==0 && xgato[1][1]==0 && xgato[1][2]==0){
+	      alert("Ganó jugador 2"); ganador=2; 
+	   }
+	   if (xgato[0][0]==0 && xgato[1][1]==0 && xgato[2][2]==0){
+	      alert("Ganó jugador 2"); ganador=2; 
+	   }
+	   if (xgato[2][0]==0 && xgato[1][1]==0 && xgato[0][2]==0){
+	      alert("Ganó jugador 2"); ganador=2; 
+	   }
+	   if (xgato[0][1]==0 && xgato[1][1]==0 && xgato[2][1]==0){
+	      alert("Ganó jugador 2"); ganador=2; 
+	   }
+	  
+	}
+	jugador = jugador * -1
+	tiros ++;
+} // fin casilla
+
+
+if ($(this).text() == "6") { //casilla 6
+    if (jugador==1) {
+	   $(this).html("X");
+	   xgato[1][2]=10;
+	   if (xgato[0][2]==10 && xgato[1][2]==10 && xgato[2][2]==10){
+	      alert("Ganó jugador 1"); ganador=1; 
+	   }
+	   if (xgato[1][0]==10 && xgato[1][1]==10 && xgato[1][2]==10){
+	      alert("Ganó jugador 1"); ganador=1; 
+	   }	   
+	   
+	}
+	else
+	{
+	  $(this).html("O");
+	   xgato[1][2]=0;
+	   if (xgato[0][2]==0 && xgato[1][2]==0 && xgato[2][2]==0){
+	      alert("Ganó jugador 2"); ganador=2; 
+	   }
+	   if (xgato[1][0]==0 && xgato[1][1]==0 && xgato[1][2]==0){
+	      alert("Ganó jugador 2"); ganador=2; 
+	   }
+	  
+	}
+	jugador = jugador * -1
+	 tiros ++;
+} // fin casilla
+
+
+if ($(this).text() == "7") { //casilla 7
+    if (jugador==1) {
+	   $(this).html("X");
+	   xgato[2][0]=10;
+	   if (xgato[0][0]==10 && xgato[1][0]==10 && xgato[2][0]==10){
+	      alert("Ganó jugador 1"); ganador=1; 
+	   }
+	   if (xgato[2][0]==10 && xgato[1][1]==10 && xgato[0][2]==10){
+	      alert("Ganó jugador 1"); ganador=1; 
+	   }
+	   if (xgato[2][0]==10 && xgato[2][1]==10 && xgato[2][2]==10){
+	      alert("Ganó jugador 1"); ganador=1; 
+	   }
+	   
+	   
+	}
+	else
+	{
+	
+	  $(this).html("O");
+	   xgato[2][0]=0;
+	   if (xgato[0][0]==0 && xgato[1][0]==0 && xgato[2][0]==0){
+	      alert("Ganó jugador 2"); ganador=2; 
+	   }
+	   if (xgato[2][0]==0 && xgato[1][1]==0 && xgato[0][2]==0){
+	      alert("Ganó jugador 2"); ganador=2; 
+	   }
+	   if (xgato[2][0]==0 && xgato[2][1]==0 && xgato[2][2]==0){
+	      alert("Ganó jugador 2"); ganador=2; 
+	   }
+	  
+	}
+	jugador = jugador * -1
+	tiros ++;
+} // fin casilla
+
+if ($(this).text() == "8") { //casilla 8
+    if (jugador==1) {
+	   $(this).html("X");
+	   xgato[2][1]=10;
+	   if (xgato[2][0]==10 && xgato[2][1]==10 && xgato[2][2]==10){
+	      alert("Ganó jugador 1"); ganador=1; 
+	   }
+	   if (xgato[0][1]==10 && xgato[1][1]==10 && xgato[2][1]==10){
+	      alert("Ganó jugador 1"); ganador=1; 
+	   }
+   
+	   
+	}
+	else
+	{
+	  $(this).html("O");
+	   xgato[2][1]=0;
+	   if (xgato[2][0]==0 && xgato[2][1]==0 && xgato[2][2]==0){
+	      alert("Ganó jugador 2"); ganador=2; 
+	   }
+	   if (xgato[0][1]==0 && xgato[1][1]==0 && xgato[2][1]==0){
+	      alert("Ganó jugador 2"); ganador=2; 
+	   }
+	  
+	}
+	jugador = jugador * -1;
+	tiros ++;
+} // fin casilla
+
+if ($(this).text() == "9") { //casilla 9
+    if (jugador==1) {
+	   $(this).html("X");
+	   xgato[2][2]=10;
+	   if (xgato[0][0]==10 && xgato[1][1]==10 && xgato[2][2]==10){
+	      alert("Ganó jugador 1"); ganador=1; 
+	   }
+	   if (xgato[2][0]==10 && xgato[2][1]==10 && xgato[2][2]==10){
+	      alert("Ganó jugador 1"); ganador=1; 
+	   }
+	   if (xgato[0][2]==10 && xgato[1][2]==10 && xgato[2][2]==10){
+	      alert("Ganó jugador 1"); ganador=1; 
+	   }
+	   
+	   
+	}
+	else
+	{
+	  $(this).html("O");
+	   xgato[2][2]=0;
+	   if (xgato[0][0]==0 && xgato[1][1]==0 && xgato[2][2]==0){
+	      alert("Ganó jugador 2"); ganador=2; 
+	   }
+	   if (xgato[2][0]==0 && xgato[2][1]==0 && xgato[2][2]==0){
+	      alert("Ganó jugador 2"); ganador=2; 
+	   }
+	   if (xgato[0][2]==0 && xgato[1][2]==0 && xgato[2][2]==0){
+	      alert("Ganó jugador 2"); ganador=2; 
+	   }
+	  
+	}
+	jugador = jugador * -1;
+	tiros ++;
+} // fin casilla
+
+if (ganador == 0) { 
+
+if (jugador==1) 
+$("#aviso").html("Sigue Jugador 1 (X)");
+else
+$("#aviso").html("Sigue Jugador 2 (O)");
+
+}
+else {  // hay un ganador
+
+if (ganador==1)  {
+$("#aviso").html("GANADOR Jugador 1 (X)");
+ganados1 ++;
+$("#jugador1").html("Juegos ganados jugador X :"+ganados1);
+
+}
+else {
+$("#aviso").html("GANADOR Jugador 2 (O)");
+ganados2 ++;
+$("#jugador2").html("Juegos ganados jugador O :"+ganados2);
+}
+
+
+$("#nuevo").html('<input type="button" value="Iniciar nuevo juego" onClick="window.location.reload()">');
+
+
+}
+
+if (tiros>=9 && ganador==0) {
+  alert("No hay ganador, juego terminado");
+  $("#nuevo").html('<input type="button" value="Iniciar nuevo juego" onClick="window.location.reload()">');
+
+
+}
+});
+
+});
+
+</script>
+
+
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title>GATO 2013</title>
+  
+  
+</head>
+<body>
+<!-- Home -->
+<div data-role="page" id="page1">
+    <div id="myHeader" data-theme="c" data-role="header" data-position="fixed">
+<center> 
+<h2>
+Universidad Autónoma de Nayarit
+</h2>
+<h3>
+Juego del Gato
+</h3>
+ </center>
+<div>
+<center>
+
+    <div id="aviso" >Empieza Jugador 1 (X)</div>
+<div id="tablero">
+<table id="gato">
+<tr>
+<td>1</td><td>2</td><td>3</td>
+</tr>
+<tr>
+<td>4</td><td>5</td><td>6</td>
+</tr>
+<tr>
+<td>7</td><td>8</td><td>9</td>
+</tr>
+</table>
+</div>
+</center>
+</div>
+<h3 align="center" id="jugador1">
+Juegos ganados jugador X :0
+</h3>
+<h3 align="center" id="jugador2">
+Juegos ganados jugador O :0
+</h3>
+
+
+
+        <h3 align="center">
+        Maru Enriquez
+        </h3>
+		</div>
+		<div id="nuevo" align="center">
+         
+		
+
+		</div>
+    <div data-role="content">
+    </div>
+</div>
+</body>
+</html>
